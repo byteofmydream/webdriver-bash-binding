@@ -12,3 +12,10 @@ then
 ./close.sh
 exit 0
 fi
+if [ "$command" == "get" ]
+then
+./navigateTo.sh ${2}
+exit 0
+fi
+echo "missing or wrong command provided"
+exit 1
