@@ -10,3 +10,4 @@ then
 exit 0
 fi
 echo "URI assertion failed. expected URI: $url, but actual URI is $response"
+exit 1
