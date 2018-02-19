@@ -4,6 +4,7 @@ Very basic tool, which provides ability to run selenium tests with quite simple 
 
 Example:
 
+```
 #!/usr/bin/env bash
 ./wd.sh start
 sleep 1s
@@ -11,3 +12,4 @@ sleep 1s
 sleep 2s
 ./wd.sh assertLocation "https://google.com"
 ./wd.sh quit
+```
