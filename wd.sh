@@ -30,7 +30,7 @@ exit 0
 fi
 if [ "$command" == "executeJS" ]
 then
-executeJS.sh ${2}
+./executeJS.sh ${2}
 exit 0
 fi
 echo "missing or wrong command provided"
