@@ -14,7 +14,7 @@ function jqCheck() {
         }
     }
 }
-function getEl(selector){
+var getEl = function(selector){
     var n=selector;
     if(n.indexOf(":first")>-1){
     }
@@ -24,5 +24,5 @@ function getEl(selector){
     var result = $(n)[0];
     if(typeof(result) === "undefined") return null;
     return $(result);
-}
+};
 jqCheck();
