@@ -14,7 +14,7 @@ function jqCheck() {
         }
     }
 }
-jqCheck()
+jqCheck();
 function getEl(selector){
     var n=selector;
     if(n.indexOf(":first")>-1){
