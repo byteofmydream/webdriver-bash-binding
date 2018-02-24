@@ -10,7 +10,7 @@ sleep 2s
 sleep 2s
 ./wd.sh click "#menu_item_finance>a"
 sleep 3s
-./wd.sh screenshot
+./wd.sh screenshot > ./screenshot.html
 sleep 2s
 ./wd.sh assertLocation "http://finance.liga.net/"
 sleep 2s
