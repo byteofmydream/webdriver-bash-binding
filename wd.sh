@@ -2,6 +2,7 @@
 set -x
 command=${1}
 argument=${2}
+extraArgument=${3}
 
 if [ "$command" == "start" ]
 then
@@ -36,6 +37,11 @@ fi
 if [ "$command" == "click" ]
 then
 ./executeJS.sh "click" ${argument}
+exit 0
+fi
+if [ "$command" == "type" ]
+then
+./executeJS.sh "type" ${argument} ${extraArgument}
 exit 0
 fi
 echo "missing or wrong command provided"

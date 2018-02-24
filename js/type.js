@@ -1,0 +1,1 @@
+getEl(arguments[0]).val(arguments[1]);
