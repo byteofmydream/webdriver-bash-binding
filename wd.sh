@@ -49,5 +49,10 @@ then
 ./executeJSScript.sh "getText" ${argument}
 exit 0
 fi
+if [ "$command" == "getAttribute" ]
+then
+./executeJSScript.sh "getAttribute" ${argument} ${extraArgument}
+exit 0
+fi
 echo "missing or wrong command provided"
 exit 1

@@ -1,0 +1,1 @@
+return getEl(arguments[0]).attr(arguments[1]);
