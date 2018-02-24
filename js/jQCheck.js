@@ -14,7 +14,7 @@ function jqCheck() {
         }
     }
 }
-var getEl = function(selector){
+window['getEl'] = function(selector){
     var n=selector;
     if(n.indexOf(":first")>-1){
     }

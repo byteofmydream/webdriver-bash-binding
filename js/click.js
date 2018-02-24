@@ -1,1 +1,1 @@
-getEl(arguments[0]).click();
+window['getEL'](arguments[0]).click();
