@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 jsFld=`pwd`"/js/"
-srcFile=${jsFld}${1}".js"
+srcFile=`cat ${jsFld}${1}".js"`
+jqFile=`cat ${jsFld}"jQCheck.js"`
 prefix="{\"script\":\""
-script=`cat ${srcFile} | tr -d "\n" | ./sed.sh 's/\"/\\\"/g'`
+script=`echo ${jqFile}${srcFile} | tr -d "\n" | ./sed.sh 's/\"/\\\"/g'`
 postfix="\",\"args\":[\"$2\"]}"
 echo ${prefix}${script}${postfix}
