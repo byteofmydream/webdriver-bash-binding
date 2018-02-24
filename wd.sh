@@ -29,19 +29,24 @@ then
 ./assertLocation.sh ${argument}
 exit 0
 fi
-if [ "$command" == "executeJS" ]
+if [ "$command" == "jsScript" ]
 then
-./executeJS.sh ${argument}
+./executeJSScript.sh ${argument}
 exit 0
 fi
 if [ "$command" == "click" ]
 then
-./executeJS.sh "click" ${argument}
+./executeJSScript.sh "click" ${argument}
 exit 0
 fi
 if [ "$command" == "type" ]
 then
-./executeJS.sh "type" ${argument} ${extraArgument}
+./executeJSScript.sh "type" ${argument} ${extraArgument}
+exit 0
+fi
+if [ "$command" == "getText" ]
+then
+./executeJSScript.sh "getText" ${argument}
 exit 0
 fi
 echo "missing or wrong command provided"
