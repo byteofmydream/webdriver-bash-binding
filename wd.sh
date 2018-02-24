@@ -18,6 +18,11 @@ then
 ./navigateTo.sh ${2}
 exit 0
 fi
+if [ "$command" == "screenshot" ]
+then
+./screenshot.sh
+exit 0
+fi
 if [ "$command" == "assertLocation" ]
 then
 ./assertLocation.sh ${2}
