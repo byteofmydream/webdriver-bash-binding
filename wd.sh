@@ -20,7 +20,7 @@ exit 0
 fi
 if [ "$command" == "screenshot" ]
 then
-./screenshot.sh
+./screenshot.sh > ./screenshot.html
 exit 0
 fi
 if [ "$command" == "assertLocation" ]
