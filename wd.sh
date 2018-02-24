@@ -15,7 +15,7 @@ exit 0
 fi
 if [ "$command" == "get" ]
 then
-./navigateTo.sh ${2}
+./navigateTo.sh ${argument}
 exit 0
 fi
 if [ "$command" == "screenshot" ]
@@ -25,12 +25,17 @@ exit 0
 fi
 if [ "$command" == "assertLocation" ]
 then
-./assertLocation.sh ${2}
+./assertLocation.sh ${argument}
 exit 0
 fi
 if [ "$command" == "executeJS" ]
 then
-./executeJS.sh ${2}
+./executeJS.sh ${argument}
+exit 0
+fi
+if [ "$command" == "click" ]
+then
+./executeJS.sh "click" ${argument}
 exit 0
 fi
 echo "missing or wrong command provided"

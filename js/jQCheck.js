@@ -15,3 +15,14 @@ function jqCheck() {
     }
 }
 jqCheck()
+function getEl(selector){
+    var n=selector;
+    if(n.indexOf(":first")>-1){
+    }
+    else {
+        n+=":first"
+    }
+    var result = $(n)[0];
+    if(typeof(result) === "undefined") return null;
+    return $(result);
+}
