@@ -54,5 +54,10 @@ then
 ./executeJSScript.sh "getAttribute" ${argument} ${extraArgument}
 exit 0
 fi
+if [ "$command" == "showAlert" ]
+then
+./executeJSScript.sh "showAlert" ${argument}
+exit 0
+fi
 echo "missing or wrong command provided"
 exit 1

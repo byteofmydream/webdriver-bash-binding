@@ -1,1 +1,1 @@
-getEl(arguments[0]).val(arguments[1]);
+getEl(args[0]).val(args[1]);

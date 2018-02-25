@@ -1,16 +1,19 @@
 #!/usr/bin/env bash
 set +x
-jsFld=`pwd`"/js/"
-argument="\"$2\""
-if [ -z "$3" ];
-then
-echo ""
-else
-argument=${argument}",\"$3\""
-fi
-srcFile=`cat ${jsFld}${1}".js"`
-jqFile=`cat ${jsFld}"jQCheck.js"`
+#accepts piped in as js file, which gonna be merged with jQuery
+mergedJs=`cat | ./insertjQToScript.sh`
+#lets drop all newliners and escape semicolumns
+mergedJs=`echo -n "$mergedJs" | tr -d "\n" | ./sed.sh 's/\"/\\\"/g'`
+#arguments are js args
+separator=','
+lapka=\"
+for var in "$@"
+do
+    if [ -z "$var" ]; then echo; else res+=`echo -n "$lapka$var$lapka$separator"`; fi
+done
+argsArray=`echo -n ${res%?}`
+
 prefix="{\"script\":\""
-script=`echo ${jqFile}${srcFile} | tr -d "\n" | ./sed.sh 's/\"/\\\"/g'`
-postfix="\",\"args\":[$argument]}"
-echo ${prefix}${script}${postfix}
+postfix="\",\"args\":[$argsArray]}"
+
+echo -n "$prefix$mergedJs$postfix"

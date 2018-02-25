@@ -1,0 +1,1 @@
+alert(args[0])

@@ -1,1 +1,1 @@
-return getEl(arguments[0]).attr(arguments[1]);
+return getEl(args[0]).attr(args[1]);

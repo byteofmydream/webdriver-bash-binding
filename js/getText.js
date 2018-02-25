@@ -1,1 +1,1 @@
-return getEl(arguments[0]).text();
+return getEl(args[0]).text();
