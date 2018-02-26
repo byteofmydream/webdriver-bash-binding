@@ -1,4 +1,5 @@
-function WebdruverJSExecutor(args){
+window["WebDriverScriptResult"] = null;
+var WebdruverJSExecutor = function (args){
     var getEl = function(selector){
         var n=selector;
         if(n.indexOf(":first")>-1){
@@ -12,7 +13,7 @@ function WebdruverJSExecutor(args){
     };
     function jqCheck() {
         if (window.jQuery) {
-            selAc();
+            return selAc();
         } else {
             var head = document.getElementsByTagName("head")[0];
             var script = document.createElement("script");

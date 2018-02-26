@@ -1,1 +1,1 @@
-return getEl(args[0]).attr(args[1]);
+window["WebDriverScriptResult"] = getEl(args[0]).attr(args[1]);

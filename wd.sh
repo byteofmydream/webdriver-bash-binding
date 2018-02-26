@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+#system variables to use for avoiding arguments passing mess
+
 set -x
 command=${1}
 argument=${2}
