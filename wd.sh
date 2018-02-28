@@ -2,7 +2,6 @@
 
 #system variables to use for avoiding arguments passing mess
 
-set -x
 command=${1}
 argument=${2}
 extraArgument=${3}
@@ -19,7 +18,7 @@ exit 0
 fi
 if [ "$command" == "get" ]
 then
-./navigateTo.sh ${argument}
+./navigateTo.sh ${argument} > /dev/null
 exit 0
 fi
 if [ "$command" == "screenshot" ]
@@ -39,12 +38,12 @@ exit 0
 fi
 if [ "$command" == "click" ]
 then
-./executeJSScript.sh "click" ${argument}
+./executeJSScript.sh "click" ${argument} > /dev/null
 exit 0
 fi
 if [ "$command" == "type" ]
 then
-./executeJSScript.sh "type" ${argument} ${extraArgument}
+./executeJSScript.sh "type" ${argument} ${extraArgument} > /dev/null
 exit 0
 fi
 if [ "$command" == "getText" ]

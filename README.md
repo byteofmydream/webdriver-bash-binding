@@ -11,5 +11,8 @@ sleep 1s
 ./wd.sh get "https://google.com"
 sleep 2s
 ./wd.sh assertLocation "https://google.com"
+sleep 1s
+./wd.sh screenshot
+sleep 1s
 ./wd.sh quit
 ```

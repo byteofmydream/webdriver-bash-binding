@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -x
 url=${1}
 sessionId=`cat ./sessionId`
 hubEP="http://127.0.0.1:4444/wd/hub/session/$sessionId/url"
