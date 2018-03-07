@@ -9,6 +9,7 @@ sleep 5s
 sleep 3s
 ./wd.sh get "https://sinoptik.ua/"
 sleep 1s
+./setImplicitWait.sh 10000
 ./wd.sh type "#search_city" "Драгобрат"
 ./wd.sh click ".search_city-submit"
 ./wd.sh click ".day-link:contains('Воскресенье')"
