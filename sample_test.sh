@@ -19,4 +19,4 @@ do
     actualPressure=`./wd.sh getText ".weatherDetails>tbody>.temperatureSens+tr>td:visible:eq($i)"`
     ./assert.sh "$actualPressure" inRange 600 700
 done
-./close.sh
+./wd.sh close
