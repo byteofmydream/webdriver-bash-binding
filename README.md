@@ -6,13 +6,14 @@ Example:
 
 ```
 #!/usr/bin/env bash
-#chromedriver should be present in this folder
+#this is example of simple UI test
 
 pkill -9 Chrome && pkill -9 chrome
-./chromedriver --port=4444 --url-base="wd/hub" &
+./chromedriver.sh
 sleep 5s
 ./wd.sh start
 sleep 3s
+./setImplicitWait.sh 10000
 ./wd.sh get "https://sinoptik.ua/"
 sleep 1s
 ./wd.sh type "#search_city" "Драгобрат"
@@ -26,4 +27,5 @@ do
     actualPressure=`./wd.sh getText ".weatherDetails>tbody>.temperatureSens+tr>td:visible:eq($i)"`
     ./assert.sh "$actualPressure" inRange 600 700
 done
+./close.sh
 ```

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 #this is example of simple UI test
-#chromedriver should be present in this folder
 
 pkill -9 Chrome && pkill -9 chrome
 ./chromedriver.sh
