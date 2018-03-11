@@ -2,7 +2,7 @@
 set -x
 expectedURI=`echo ${1} | ./normalizeURI.sh`
 sessionId=`cat ./sessionId`
-hubEP="http://127.0.0.1:4444/wd/hub/session/$sessionId/url"
+hubEP="`./getOpt.sh BASE_URL`:`./getOpt.sh PORT`/`./getOpt.sh RELATIVE_URL`/session/$sessionId/url"
 response=`curl -s ${hubEP} -H 'Accept: application/json; charset=utf-8'`
 actualURI=`echo "$response" | ./getFromJSON.sh value | ./normalizeURI.sh`
 

@@ -29,5 +29,5 @@ then
     fi
 fi
 
-echo "missing or wrong command provided"
+echo "Missing or wrong command provided"
 exit 1

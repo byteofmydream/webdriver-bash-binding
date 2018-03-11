@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 sessionId=`cat ./sessionId`
-url="http://127.0.0.1:4444/wd/hub/session/$sessionId"
-response=`curl -s -X "DELETE" ${url} -H 'Pragma: no-cache' -H 'Origin: http://127.0.0.1:4444'`
+url="`./getOpt.sh BASE_URL`:`./getOpt.sh PORT`/`./getOpt.sh RELATIVE_URL`/session/$sessionId"
+response=`curl -s -X "DELETE" ${url} -H 'Pragma: no-cache' -H 'Origin: '$(./getOpt.sh BASE_URL)':'$(./getOpt.sh PORT)`
 isFailed=`echo -n ${response} | ./getFromJSON.sh status`
 if [ -z "$isFailed" ]
 then
