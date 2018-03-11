@@ -6,7 +6,7 @@ isFailed=`echo -n ${response} | ./getFromJSON.sh status`
 if [ -z "$isFailed" ]
 then
     echo "Failed to close browser"
-    exit 1;
+    exit 1
 else
     echo "Browser has been successfully closed"
     exit 0
