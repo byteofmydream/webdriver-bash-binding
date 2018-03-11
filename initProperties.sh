@@ -6,6 +6,6 @@ do
     then
         export "$propName=$propValue"
     else
-        echo "${propName} is busy, please, choose another name"
+        echo "Env. variable ${propName} is busy, choose another name"
     fi
 done < config.properties
