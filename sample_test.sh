@@ -2,8 +2,9 @@
 #this is example of simple UI test
 #chromedriver must be present in this folder
 
+source initProperties.sh
 pkill -9 Chrome && pkill -9 chrome
-./chromedriver --port="$(./getOpt.sh HUB_PORT)" --url-base="$(./getOpt.sh HUB_PORT)" &
+./chromedriver --port="${HUB_PORT}" --url-base="${RELATIVE_URL}" &
 ./wd.sh start
 sleep 3s
 ./setImplicitWait.sh 10000
