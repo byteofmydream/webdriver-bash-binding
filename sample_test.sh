@@ -16,7 +16,7 @@ sleep 1s
 ./wd.sh type "#search_city" "Драгобрат"
 ./wd.sh click ".search_city-submit"
 ./wd.sh click ".day-link:contains('Воскресенье')"
-actualText=`./wd.sh getText "div.main.loaded>p>a.day-link"`
+actualText=`./wd.sh getText "div.main.loaded>p>a.day-link:visible"`
 ./assert.sh "${actualText}" equals Воскресенье
 
 for i in {0..3}
