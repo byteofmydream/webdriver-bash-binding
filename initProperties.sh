@@ -17,4 +17,3 @@ do
         fi
     fi
 done < config.properties
-exit 0
