@@ -18,7 +18,7 @@ exit 0
 fi
 if [ "$command" == "get" ]
 then
-./navigateTo.sh ${argument} > /dev/null
+./navigateTo.sh ${argument}
 exit 0
 fi
 if [ "$command" == "screenshot" ]
