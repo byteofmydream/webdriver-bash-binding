@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -x
 expectedURI=`echo ${1} | ./normalizeURI.sh`
 sessionId=`cat ./sessionId`
 hubEP="${BASE_URL}:${HUB_PORT}/${RELATIVE_URL}/session/$sessionId/url"
