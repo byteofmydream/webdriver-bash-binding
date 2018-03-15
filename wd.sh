@@ -61,6 +61,11 @@ then
 ./executeJSScript.sh "showAlert" ${argument}
 exit 0
 fi
+if [ "$command" == "inspect" ]
+then
+./executeJSScript.sh "inspector"
+exit 0
+fi
 if [ "$command" == "close" ]
 then
 ./close.sh
