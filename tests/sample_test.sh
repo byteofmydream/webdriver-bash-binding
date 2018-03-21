@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
+cd ..
 #this is example of simple UI test
 #chromedriver must be present in this folder
 
-source initProperties.sh
+source ./initProperties.sh
 pkill -9 Chrome && pkill -9 chrome
 sleep 1s
 ./chromedriver --port="${HUB_PORT}" --url-base="${RELATIVE_URL}" &
@@ -14,6 +15,7 @@ sleep 3s
 ./assertLocation.sh "https://sinoptik.ua/"
 sleep 1s
 ./wd.sh type "#search_city" "Драгобрат"
+./wd.sh inspect
 ./wd.sh click ".search_city-submit"
 ./wd.sh click ".day-link:contains('Воскресенье')"
 actualText=`./wd.sh getText "div.main.loaded>p>a.day-link:visible"`
