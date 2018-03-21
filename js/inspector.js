@@ -12,7 +12,7 @@ var SelectorLab = function () {
         }
     }
     libInvoke();
-    var change = {
+    var changeAim = {
         72: {
             left: "-=0"
         },
@@ -29,6 +29,40 @@ var SelectorLab = function () {
             top: "+=1"
         }
     };
+    var changeVerline = {
+        72: {
+            left: "-=0"
+        },
+        37: {
+            left: "-=1"
+        },
+        38: {
+            top: "-=0"
+        },
+        39: {
+            left: "+=1"
+        },
+        40: {
+            top: "+=0"
+        }
+    };
+    var changeHorline = {
+        72: {
+            left: "-=0"
+        },
+        37: {
+            left: "-=0"
+        },
+        38: {
+            top: "-=1"
+        },
+        39: {
+            left: "+=0"
+        },
+        40: {
+            top: "+=1"
+        }
+    };
     $(document).one("keydown", keyDown);
     var going;
     var highlightedElement;
@@ -38,11 +72,15 @@ var SelectorLab = function () {
             showHelp()
         }
         $(document).one("keyup", keyup);
-        var animation = change[e.which];
+        var animationAim = changeAim[e.which];
+        var animationVertline = changeVerline[e.which];
+        var animationHorline = changeHorline[e.which];
         going = setInterval(keepGoing, 1);
 
         function keepGoing() {
-            $(".ball").css(animation)
+            $(".ball").css(animationAim);
+            $("#vert_line").css(animationVertline);
+            $("#horizontal_line").css(animationHorline);
         }
     }
 
@@ -101,6 +139,8 @@ var SelectorLab = function () {
     }
 
     function createCursor() {
+        var pageWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        var pageHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
         var body = document.getElementsByTagName("body")[0];
         var square = document.createElement("div");
         square.setAttribute("id", "square_highlighter");
@@ -114,13 +154,37 @@ var SelectorLab = function () {
             "z-index": "99999999",
             "background-color": "violet"
         });
+        var vert_line = document.createElement("div");
+        vert_line.setAttribute("id", "vert_line");
+        body.appendChild(vert_line);
+        $(vert_line).css({
+            "width": "2px",
+            "height": pageHeight,
+            "position": "absolute",
+            "left": "40px",
+            "top": "1px",
+            "z-index": "99999999",
+            "background-color": "violet"
+        });
+        var horizontal_line = document.createElement("div");
+        horizontal_line.setAttribute("id", "horizontal_line");
+        body.appendChild(horizontal_line);
+        $(horizontal_line).css({
+            "width": pageWidth,
+            "height": "2px",
+            "position": "absolute",
+            "left": "1px",
+            "top": "50px",
+            "z-index": "99999999",
+            "background-color": "violet"
+        });
         var cursor = document.createElement("img");
         cursor.setAttribute("class", "ball");
         cursor.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACvElEQVQ4T32Ty09TQRTGv7m37/b2RZHSUlpatEYKCx8x8RHFAMpCF7LAuPFvc2N0oYn4iCKJStQYJUZBFkihthVKobfv0ue9x2lJNARxljPn+813vjnDwFd+/BoJLiean5fQFV1i7b3Dljw4TNozEag7OdjnXjAmj46R4cZZMC1BSdVRfTCLI4dAtrnYeGsCYo8eaAHVmU9gmbFRMow4oRYLEHwBqBUTyvdfwpNY2eckdXSYzNNXIWjyUH/FwSwSat92wBLeIJkiPdAHHaB6A8zthVI2ovj4Nfrje5BEKEK26XGILAc1lQTT61Fby6K6tIVOwbo7QGYOMfptoEYDgqcPLXIiPzMPKCocU1egIRnKJhdrtdhdzaLyI4tQOsb+2FzhEOuJblh8EtRGE0K3G+ToBwhg+SQPLQWBiwvRHCrRLMLb8Y52X5/fe/xkDzsheSRQk0PMlk6FWq4AGg1KySLyqzkM7+yJDwDaG19cPnJHuBOXCWqLR80dCFoR1UIdG1/TOLmT3HfpgTdf4IH5RnphaPG0ae+YMUJDIyG5mMapteXDAR8GwhSYOA9LLg41K/Mn03QACnciOpwoOfyIPX2LC5vrB1uYHzhGoclLsGYSfKA2wNo9V5odgGTWgloKxD4fZF0XYrPvMJqK/Q3xlW+Qjk+Owi4n0YrHIep1SOWriG+VOwC/24JeuxFKvQ5Nvx8Zmxurc+8xkYwy9rwvSEMTl+FMJ9BKJCDqdNgoVRHNVHA9u9W55YnTTYMuM7wSh/A50QYGIHd7sTz7BuzjuYs0YjWiubYOgYvju1WsZEuYKmT2hfXQ5qKwU4LfZORzwiGhIBaLVbBnHj+dNuhgYAJ+1mpYLpVxuyj/80fes3bRkGRBwGBAjVQs1Pjoty0+srrIJIpIN+q4U8n/9zvfNdupR6fHrqLgZjHDfgMR5CsxEFaiMQAAAABJRU5ErkJggg==";
         body.appendChild(cursor);
         $(cursor).css({
-            "width": "5px",
-            "height": "5px",
+            "width": "1px",
+            "height": "1px",
             "position": "absolute",
             "left": "30px",
             "top": "40px",
@@ -144,6 +208,8 @@ var SelectorLab = function () {
 
     function putCursor(x, y) {
         $(".ball").css({"left": x + "px", "top": y + "px"});
+        $("#horizontal_line").css({"top": y + "px"});
+        $("#vert_line").css({"left": x + "px"});
         target_highlight();
     }
     function createSelectorWidget() {
