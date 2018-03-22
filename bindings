@@ -1,5 +1,4 @@
 |start|newSession|
-|quit|close|
 |get|navigateTo|
 |screenshot|screenshot|
 |assertLocation|assertLocation|
