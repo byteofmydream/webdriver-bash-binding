@@ -1,0 +1,13 @@
+|start|newSession|
+|quit|close|
+|get|navigateTo|
+|screenshot|screenshot|
+|assertLocation|assertLocation|
+|jsScript|executeJSScript|
+|click|executeJSScript|click|
+|type|executeJSScript|type|
+|getText|executeJSScript|getText|
+|getAttribute|executeJSScript|getAttribute|
+|showAlert|executeJSScript|showAlert|
+|inspect|executeJSScript|inspector|
+|close|close|
