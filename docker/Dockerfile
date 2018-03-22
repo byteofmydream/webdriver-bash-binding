@@ -39,20 +39,19 @@ RUN apt-get update -qqy \
     fluxbox \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
-USER seluser
 
 #==============================
 # Generating the VNC password as seluser
 # So the service can be started with seluser
 #==============================
+RUN git clone https://github.com/byteofmydream/webdriver-bash-binding.git
+
+USER seluser
 
 RUN mkdir -p ~/.vnc \
-#  && x11vnc ~/.vnc/passwd
-  && x11vnc
+  && x11vnc --storepasswd secret ~/.vnc/passwd
+#  && x11vnc --nopw
 
-RUN cd ~ \
-  && git clone https://github.com/byteofmydream/webdriver-bash-binding.git \
-  && cd -
 
 #==============================
 # Scripts to run Selenium Node
