@@ -10,4 +10,5 @@
 |getAttribute|executeJSScript|getAttribute|
 |showAlert|executeJSScript|showAlert|
 |inspect|executeJSScript|inspector|
+|setImplicitWait|setImplicitWait|
 |close|close|
