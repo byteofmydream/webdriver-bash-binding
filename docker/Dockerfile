@@ -44,9 +44,10 @@ RUN apt-get update -qqy \
 # Generating the VNC password as seluser
 # So the service can be started with seluser
 #==============================
-RUN git clone https://github.com/byteofmydream/webdriver-bash-binding.git
 
 USER seluser
+RUN cd ~ \
+  && git clone https://github.com/byteofmydream/webdriver-bash-binding.git
 
 RUN mkdir -p ~/.vnc \
   && x11vnc --storepasswd secret ~/.vnc/passwd
