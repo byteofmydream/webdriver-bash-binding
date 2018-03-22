@@ -14,6 +14,7 @@ USER root
 RUN apt-get update -qqy \
   && apt-get -qqy install \
   x11vnc \
+  git \
   curl \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
@@ -48,6 +49,10 @@ USER seluser
 RUN mkdir -p ~/.vnc \
 #  && x11vnc ~/.vnc/passwd
   && x11vnc
+
+RUN cd ~ \
+  && git clone https://github.com/byteofmydream/webdriver-bash-binding.git \
+  && cd -
 
 #==============================
 # Scripts to run Selenium Node
