@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 command=${1}
+if [ "$command" = "commandslist" ]
+then
+    bash ./wdAPI/commandslist.sh
+    exit 0
+fi
 shift
 
 #arguments taken from bindings file
